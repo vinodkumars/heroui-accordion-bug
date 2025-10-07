@@ -5,7 +5,7 @@ import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
 import {Accordion, AccordionItem} from "@heroui/accordion";
 import { button as buttonStyles } from "@heroui/theme";
-
+import { Select, SelectItem } from "@heroui/select";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
@@ -13,6 +13,21 @@ import { GithubIcon } from "@/components/icons";
 export default function Home() {
   const defaultContent =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+  const animals = [
+      {key: "cat", label: "Cat"},
+      {key: "dog", label: "Dog"},
+      {key: "elephant", label: "Elephant"},
+      {key: "lion", label: "Lion"},
+      {key: "tiger", label: "Tiger"},
+      {key: "giraffe", label: "Giraffe"},
+      {key: "dolphin", label: "Dolphin"},
+      {key: "penguin", label: "Penguin"},
+      {key: "zebra", label: "Zebra"},
+      {key: "shark", label: "Shark"},
+      {key: "whale", label: "Whale"},
+      {key: "otter", label: "Otter"},
+      {key: "crocodile", label: "Crocodile"},
+    ];
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -69,6 +84,12 @@ export default function Home() {
         {defaultContent}
       </AccordionItem>
     </Accordion>
+
+    <Select className="max-w-xs" label="Select an animal">
+        {animals.map((animal) => (
+          <SelectItem key={animal.key}>{animal.label}</SelectItem>
+        ))}
+      </Select>
     </section>
   );
 }
